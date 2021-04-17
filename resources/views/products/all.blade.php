@@ -11,13 +11,14 @@
                         <th>عنوان کالا</th>
                         <th>قیمت</th>
                         <th>واحد</th>
+                        <th></th>
                     </tr>
                     </thead>
                     <tbody>
                     @foreach($products as $product)
                         <tr>
                             <td><a href="{{ route("products.edit",$product) }}">{{$product->name}}</a></td>
-                            <td>{{$product->price}}</td>
+                            <td>{{number_format($product->price)}}</td>
                             <td>{{$product->unit}}</td>
                             <td>
                                 <form action="{{ route("products.delete",$product) }}" method="post">
