@@ -1,10 +1,12 @@
 <template>
-   <div>
-       <div v-for="product in prices" class="d-inline-block border rounded h1 m-3 p-5">
-           <div class="text-info">{{ product.name }}</div>
-           <div class="text-danger">{{ product.price.toLocaleString() }} تومان</div>
-       </div>
-   </div>
+    <div class="row">
+        <div v-for="product in prices" class="col-md-3  p-1">
+            <div class=" border rounded p-1">
+                <div class="text-primary p-1 h1">{{ product.name }}</div>
+                <div class="text-danger p-1 h2">{{ product.price.toLocaleString() }} تومان</div>
+            </div>
+        </div>
+    </div>
 </template>
 
 <script>

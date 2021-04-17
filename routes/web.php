@@ -18,6 +18,11 @@ Route::get('/', function () {
 });
 
 Route::get("products/priceBoard", [App\Http\Controllers\ProductController::class, 'priceBoard']);
+Route::get("products", [App\Http\Controllers\ProductController::class, 'index'])->name("products.index");
+Route::get("products/edit/{product}", [App\Http\Controllers\ProductController::class, 'edit'])->name("products.edit");
+Route::get("products/create", [App\Http\Controllers\ProductController::class, 'create'])->name("products.create");
+Route::delete("products/{product}", [App\Http\Controllers\ProductController::class, 'destroy'])->name("products.delete");
+Route::match(["post", "put"], "products", [App\Http\Controllers\ProductController::class, 'store'])->name("products.store");
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
