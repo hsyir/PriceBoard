@@ -33,11 +33,20 @@ class ProductController extends Controller
     {
         $product = $request->isMethod("post") ? new Product : Product::find($request->product_id);
 
+        $this->validate($request, [
+            "name" => "required",
+            "price" => "required",
+            "unit" => "required",
+            "category_id" => "required",
+        ]);
 
         $product->fill($request->all());
         $product->save();
 
-        return redirect()->back()->with(["message" => "done"]);
+        if ($request->isMethod("post"))
+            return redirect()->to(route("products.index"))->with(["success" => "done"]);
+
+        return redirect()->back()->with(["success" => "done"]);
 
     }
 
@@ -45,6 +54,21 @@ class ProductController extends Controller
     {
         $product->delete();
         return redirect()->back();
+    }
+
+    public function reorder(Request $request)
+    {
+        foreach ($request->data as $product_id => $d) {
+            $product = Product::find($product_id);
+            if($product){
+                $product->order = $d["order"];
+                $product->name = $d["name"];
+                $product->category_id = $d["category_id"];
+                $product->save();
+            }
+        }
+
+        return redirect()->back()->with(["success"=>"Done"]);
     }
 
 }

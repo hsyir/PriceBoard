@@ -6,11 +6,11 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Product extends Model
+class Category extends Model
 {
     use HasFactory;
 
-    protected $fillable=["name","price","unit","category_id"];
+    protected $fillable=["name","order","color","color2"];
 
     /**
      * The "booted" method of the model.
@@ -24,8 +24,8 @@ class Product extends Model
         });
     }
 
-    public function category()
+    public function products()
     {
-        return $this->belongsTo(Category::class)->withDefault(["name"=>"دسته بندی نشده"]);
+        return $this->hasMany(Product::class);
     }
 }

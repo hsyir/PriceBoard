@@ -24,6 +24,7 @@
         "vue-template-compiler": "^2.6.10"
     },
     "dependencies": {
+        "@dangvanthanh/vue-clock": "^0.2.1",
         "@fortawesome/fontawesome-free": "^5.15.3",
         "bootstrap-v4-rtl": "^4.6.0-2"
     }
