@@ -18,7 +18,7 @@ class Category extends JsonResource
             "name"=>$this->name,
             "color"=>$this->color,
             "color2"=>$this->color2,
-            "products"=>new ProductCollection($this->products)
+            "products"=>new ProductCollection($this->publishedProducts)
         ];
     }
 }

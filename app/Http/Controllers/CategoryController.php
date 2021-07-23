@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Resources\CategoryCollection;
 use App\Models\Category;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
@@ -43,6 +44,6 @@ class CategoryController extends Controller
 
     public function categories()
     {
-        return new CategoryCollection(Category::with("products")->get());
+        return new CategoryCollection(Category::with("publishedProducts")->get());
     }
 }

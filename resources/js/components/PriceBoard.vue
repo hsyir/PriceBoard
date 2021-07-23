@@ -5,7 +5,7 @@
 
         <div v-for="category in categories" class="col-md-2  p-0">
             <div class="  rounded h-100 p-1">
-                <h1 class="text-center rounded p-3" :style="{backgroundColor:category.color2,color:'white'}">{{ category.name }}</h1>
+                <h3 class="text-center rounded p-3" :style="{backgroundColor:category.color2,color:'white'}">{{ category.name }}</h3>
 
                 <div v-for="product in category.products">
                     <div class="  rounded p-1 h-100  m-1 " :style="{backgroundColor:category.color}">

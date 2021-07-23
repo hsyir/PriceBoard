@@ -10,7 +10,7 @@ class ProductController extends Controller
 {
     public function priceBoard()
     {
-        return new ProductCollection(Product::all());
+        return new ProductCollection(Product::wherePublished(true)->get());
     }
 
     public function index()
@@ -58,17 +58,20 @@ class ProductController extends Controller
 
     public function reorder(Request $request)
     {
+
         foreach ($request->data as $product_id => $d) {
             $product = Product::find($product_id);
-            if($product){
+            if ($product) {
                 $product->order = $d["order"];
                 $product->name = $d["name"];
+                $product->price = $d["price"];
+                $product->published = (boolean)($d["published"] ?? false);
                 $product->category_id = $d["category_id"];
                 $product->save();
             }
         }
 
-        return redirect()->back()->with(["success"=>"Done"]);
+        return redirect()->back()->with(["success" => "Done"]);
     }
 
 }

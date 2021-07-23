@@ -16,6 +16,7 @@
                         <thead>
                         <tr>
                             <th></th>
+                            <th>انتشار</th>
                             <th>عنوان کالا</th>
                             <th>قیمت</th>
                             <th>واحد</th>
@@ -29,6 +30,9 @@
                         @foreach($products as $product)
                             <tr>
                                 <td><a href="{{ route("products.edit",$product) }}">Edit</a></td>
+                                <td>
+                                    <input type="checkbox"  class="checkbox-inline" name="data[{{$product->id}}][published]" @if($product->published) checked @endif>
+                                </td>
                                 <td>
                                     <input type="text" value="{{ $product->name }}" width="5" class="form-control" name="data[{{$product->id}}][name]">
                                 </td>
