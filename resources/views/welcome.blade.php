@@ -5,7 +5,7 @@
             <div class="col-md-2 align-content-center p-0">
                 <div class="row h-100">
                     <div class="col-md-12 justify-content-center text-center">
-                        <img src="/images/full-logo.png" alt="" class="w-75   ">
+                        <img src="images/full-logo.png" alt="" class="w-75   ">
                     </div>
                     <div class="col-md-12 align-self-end mb-5 text-center p-0">
                         <h3 class="h1 text-white text-center">
