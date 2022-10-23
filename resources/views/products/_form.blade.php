@@ -12,6 +12,7 @@
 
     {{ Html::text("name")->value(old("name",$product->name))->label("عنوان کالا") }}
     {{ Html::text("price")->value(old("name",$product->price))->label("قیمت") }}
+    {{ Html::text("discount_percent")->value(old("discount_percent",$product->discount_percent))->label("درصد تخفیف") }}
     {{ Html::text("unit")->value(old("name",$product->unit))->label("واحد") }}
 
     {{ Html::select("category_id")->caption("دسته بندی")->options($categories)->value($product->category_id) }}

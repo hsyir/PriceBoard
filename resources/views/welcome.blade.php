@@ -1,6 +1,6 @@
 @extends('layouts.front')
 @section('content')
-    <div class="container-fluid bg-dark p-3 vh-100 ">
+    <div class="container-fluid bg-dark vh-100 ">
         <div class="row justify-content-center h-100">
             <div class="col-md-2 align-content-center p-0">
                 <div class="row h-100">
