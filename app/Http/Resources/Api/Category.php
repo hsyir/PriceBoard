@@ -14,12 +14,14 @@ class Category extends JsonResource
      */
     public function toArray($request)
     {
+        
+        $products = request('withoutfilter')=="yes" ? $this->products : $this->publishedProducts;
         return [
             "id"=>$this->id,
             "name"=>$this->name,
             "color"=>$this->color,
             "color2"=>$this->color2,
-            "products"=>(new ProductCollection($this->publishedProducts))->keyBy("id")
+            "products"=>(new ProductCollection($products))->keyBy("id")
         ];
     }
 }
