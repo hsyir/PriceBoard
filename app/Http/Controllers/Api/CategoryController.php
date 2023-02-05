@@ -12,7 +12,10 @@ class CategoryController extends Controller
 {
     public function all()
     {
+        $categories = Category::all();
+        return (new CategoryCollection($categories))->keyBy("id");
+        /* 
         $categories = Category::with("publishedProducts")->get();
-        return (ResourcesCategory::collection($categories))->keyBy("id");
+        return (ResourcesCategory::collection($categories))->keyBy("id"); */
     }
 }
